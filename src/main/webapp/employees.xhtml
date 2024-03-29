@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Liste des Employés</title>
+</h:head>
+<h:body>
+    <h2>Liste des Employés</h2>
+    <p>
+        <a href="employees.xhtml">Employees</a>
+        <a href="affectation.xhtml">Back to Home</a>
+    </p>
+    <h:dataTable value="#{employeeBean.allEmployees}" var="employee">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{employee.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Nom</f:facet>
+            #{employee.name}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{employee.email}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Skill</f:facet>
+            #{employee.skill}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Project</f:facet>
+            #{employee.project}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Action</f:facet>
+            <h:form>
+                <h:commandButton value="Remove" action="#{employeeBean.removeEmployee(employee)}" />
+            </h:form>
+        </h:column>
+    </h:dataTable>
+
+</h:body>
+</html>

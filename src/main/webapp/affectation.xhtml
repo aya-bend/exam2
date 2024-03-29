@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Affectation Employé</title>
+</h:head>
+<h:body>
+    <h2>Employé Affectation</h2>
+    <p>
+        <a href="employees.xhtml">Employees</a>
+        <a href="affectation.xhtml">Back to Home</a>
+    </p>
+    <h:form>
+        <h:outputLabel for="employeeName" value="Employee Name:" />
+        <h:selectOneMenu id="employeeName" value="#{affectationBean.employeeName}">
+            <f:selectItems value="#{affectationBean.allEmployees}" var="emp" itemLabel="#{emp.name}" itemValue="#{emp.name}" />
+        </h:selectOneMenu>
+
+        <h:outputLabel for="projectName" value="Project:" />
+        <h:selectOneMenu id="projectName" value="#{affectationBean.projectName}">
+            <f:selectItems value="#{affectationBean.allProjects}" var="proj" itemLabel="#{proj.name}" itemValue="#{proj.name}" />
+        </h:selectOneMenu>
+
+        <h:outputLabel for="implicationPercentage" value="Implication Percentage:" />
+        <h:inputText id="implicationPercentage" value="#{affectationBean.implicationPercentage}" />
+
+        <h:commandButton value="Affecter Projet" action="#{affectationBean.affecterProjet}" />
+    </h:form>
+</h:body>
+</html>
